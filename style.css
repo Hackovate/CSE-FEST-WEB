@@ -106,7 +106,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus{outline:3px sol
 
 /* Timeline schedule styles */
 .timeline-container{gap:2rem}
-.timeline-dates{display:flex;gap:1rem;align-items:stretch}
+.timeline-dates{display:flex;gap:1rem;align-items:stretch;flex-wrap:nowrap;overflow-x:auto;padding-bottom:0.25rem}
 .timeline-dates .date-btn{background:transparent;border:1px solid rgba(2,20,48,0.06);padding:12px 14px;text-align:center;border-radius:8px;font-weight:600;color:var(--dark-blue);cursor:pointer;flex:1}
 .timeline-dates .date-btn small{display:block;font-weight:400;font-size:0.85rem;color:#6c7a89;margin-top:4px}
 .timeline-dates .date-btn.active{background:linear-gradient(90deg,var(--navy),var(--deep-blue));color:#fff;border-color:transparent}
@@ -116,7 +116,17 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus{outline:3px sol
 .timeline-content .timeline-panel[hidden]{display:none}
 .timeline-item h5{font-size:1rem;margin-bottom:.5rem}
 .timeline-item ul{margin-bottom:0}
+.timeline-panel{opacity:0;visibility:hidden;transform:translateY(8px);height:0;overflow:hidden}
+.timeline-panel.active{opacity:1;visibility:visible;transform:none;height:auto}
 
+/* keep the date buttons in a single horizontal row; allow scrolling on narrow screens */
 @media (max-width:768px){
-  .timeline-dates{flex-direction:column}
+  .timeline-dates{flex-direction:row;gap:0.75rem}
+  .timeline-dates .date-btn{flex:0 0 auto;padding:10px 12px}
+}
+
+@media (min-width:992px){
+  /* on large screens make the three buttons wider and centered */
+  .timeline-dates{gap:1.25rem}
+  .timeline-dates .date-btn{flex:0 0 260px;padding:14px 18px}
 }

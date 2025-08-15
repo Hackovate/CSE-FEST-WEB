@@ -67,42 +67,46 @@ document.addEventListener('DOMContentLoaded', function(){
   // Improve keyboard accessibility: focus visible for modal close
   document.querySelectorAll('.btn-close').forEach(btn => btn.setAttribute('aria-label','Close'));
 
-  // Timeline interaction: make the date buttons toggle corresponding timeline panels
+  // Timeline interaction: activate panels only on user click (hidden by default)
   (function timelineTabs(){
     try{
-      const dateButtons = document.querySelectorAll('.timeline-dates .date-btn');
-      const panels = document.querySelectorAll('.timeline-panel');
-      function activate(targetId){
+      const dateButtons = Array.from(document.querySelectorAll('.timeline-dates .date-btn'));
+      const panels = Array.from(document.querySelectorAll('.timeline-panel'));
+      const track = document.querySelector('.timeline-track');
+
+      function activateByTarget(targetId){
+        // update buttons
         dateButtons.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
-        panels.forEach(panel => {
-          const show = `#${panel.id}` === targetId || panel.id === targetId.replace('#','');
-          if(show){
-            panel.removeAttribute('hidden');
-            panel.classList.add('active');
-          } else {
-            panel.setAttribute('hidden','');
-            panel.classList.remove('active');
-          }
-        });
+        // show the matched panel only
+        panels.forEach(p => p.classList.toggle('active', ('#' + p.id) === targetId));
+        // reset any transform (we're not sliding)
+        if(track) track.style.transform = '';
+        // small debug log (safe in dev)
+        // console.log('Activated', targetId);
       }
 
-      dateButtons.forEach(btn => {
+      dateButtons.forEach((btn, idx) => {
         btn.setAttribute('role','tab');
-        btn.addEventListener('click', function(){ activate(this.getAttribute('data-target')); });
+        btn.addEventListener('click', function(){ activateByTarget(this.getAttribute('data-target')); });
         btn.addEventListener('keydown', function(e){
-          if(e.key === 'ArrowDown' || e.key === 'ArrowRight'){
-            const next = this.nextElementSibling || dateButtons[0]; next.focus();
+          if(e.key === 'ArrowRight'){
+            const next = dateButtons[(idx+1) % dateButtons.length]; next.focus();
           }
-          if(e.key === 'ArrowUp' || e.key === 'ArrowLeft'){
-            const prev = this.previousElementSibling || dateButtons[dateButtons.length-1]; prev.focus();
+          if(e.key === 'ArrowLeft'){
+            const prev = dateButtons[(idx-1 + dateButtons.length) % dateButtons.length]; prev.focus();
           }
-          if(e.key === 'Enter' || e.key === ' '){ activate(this.getAttribute('data-target')); }
+          if(e.key === 'Enter' || e.key === ' '){ activateByTarget(this.getAttribute('data-target')); }
         });
       });
 
-      // initialize to first active
-      const first = document.querySelector('.timeline-dates .date-btn.active') || dateButtons[0];
-      if(first) activate(first.getAttribute('data-target'));
+      // do not auto-activate any panel on load — wait for user click
+      // but ensure track is reset
+      if(track) track.style.transform = 'translateX(0)';
+
+      window.addEventListener('resize', function(){
+        const activeBtn = dateButtons.find(b => b.classList.contains('active'));
+        if(activeBtn) activateByTarget(activeBtn.getAttribute('data-target'));
+      });
     }catch(e){console.warn('timelineTabs error', e)}
   })();
 });

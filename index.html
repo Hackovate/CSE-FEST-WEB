@@ -213,18 +213,22 @@
           <p class="text-muted">Click a date to view the event timeline</p>
         </div>
 
-        <div class="timeline-container row gx-4 align-items-start">
-          <div class="col-lg-4">
-            <nav class="timeline-dates d-flex flex-column" role="tablist" aria-label="Event dates">
-              <button class="date-btn active" data-target="#day1" aria-controls="day1">Aug 17–24 <small>• Sports & E-Sports</small></button>
-              <button class="date-btn" data-target="#day2" aria-controls="day2">Aug 26<br><small>Inauguration & Activities</small></button>
-              <button class="date-btn" data-target="#day3" aria-controls="day3">Aug 27<br><small>Programming & Cultural</small></button>
-            </nav>
+            <div class="timeline-container">
+          <div class="row mb-3">
+            <div class="col-12 d-flex justify-content-center">
+              <nav class="timeline-dates d-flex" role="tablist" aria-label="Event dates">
+                <button class="date-btn" data-target="#day1" aria-controls="day1">Aug 17–24 <small>Sports & E-Sports</small></button>
+                <button class="date-btn" data-target="#day2" aria-controls="day2">Aug 26<br><small>Inauguration & Activities</small></button>
+                <button class="date-btn" data-target="#day3" aria-controls="day3">Aug 27<br><small>Programming & Cultural</small></button>
+              </nav>
+            </div>
           </div>
 
-          <div class="col-lg-8">
-            <div class="timeline-content">
-              <div id="day1" class="timeline-panel active" role="tabpanel">
+          <div class="row">
+            <div class="col-12">
+              <div class="timeline-content">
+                <div class="timeline-track">
+                <div id="day1" class="timeline-panel" role="tabpanel">
                 <h4>Aug 17 – 24 — Sports & E-Sports</h4>
                 <div class="timeline-item">
                   <h5>Sports</h5>
@@ -257,7 +261,7 @@
                 </div>
               </div>
 
-              <div id="day2" class="timeline-panel" role="tabpanel" hidden>
+              <div id="day2" class="timeline-panel" role="tabpanel">
                 <h4>Aug 26 — Inauguration & Activities</h4>
                 <ul>
                   <li>Inauguration of CSE FEST 2025</li>
@@ -267,7 +271,7 @@
                 </ul>
               </div>
 
-              <div id="day3" class="timeline-panel" role="tabpanel" hidden>
+              <div id="day3" class="timeline-panel" role="tabpanel">
                 <h4>Aug 27 — Programming, Cultural & Farewell</h4>
                 <div class="timeline-item">
                   <h5>Regional Programming Contest</h5>
