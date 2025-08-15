@@ -20,24 +20,183 @@
     <div class="container text-white text-center">
       <h1 class="fw-bold">Sports Week</h1>
       <p class="lead">Friendly matches and tournaments across football, cricket, volleyball and more.</p>
-  <a class="btn btn-primary mt-3" href="https://forms.gle/REPLACE_WITH_YOUR_FORM" target="_blank" rel="noopener noreferrer">Register for Sports</a>
+      <div class="d-flex justify-content-center gap-3 mt-3">
+        <a class="btn btn-primary" href="https://forms.gle/REPLACE_WITH_YOUR_FORM" target="_blank" rel="noopener noreferrer">Register for Sports</a>
+        <a class="btn btn-outline-light" href="https://timitbd.com/csefest/" target="_blank" rel="noopener noreferrer">View Full Fixtures</a>
+      </div>
     </div>
   </header>
 
   <main class="py-5">
     <div class="container" data-aos="fade-up">
-      <h2>Events Included</h2>
-      <ul>
-        <li>Football (5-a-side)</li>
-        <li>Cricket (T20 friendly)</li>
-        <li>Volleyball, Badminton & Athletics</li>
-      </ul>
+      <div class="row gx-4">
+  <!-- aside removed: main content expanded to full width -->
 
-      <h3>Participation</h3>
-      <p>Open to all batches. Team registration required for team sports.</p>
+  <section class="col-12">
+          <div class="card p-4 mb-3 dashboard-panel">
+            <h3>Events Included</h3>
 
-      <h3>Schedule</h3>
-      <p>Sports Week: 2025-11-03 to 2025-11-05</p>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <h5 class="mb-2">Outdoor</h5>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="card event-card-sm p-2">
+                    <strong>Short Pitch Cricket</strong>
+                    <div class="small text-muted">8-a-side inter batch</div>
+                  </div>
+                  <div class="card event-card-sm p-2">
+                    <strong>Inter-Batch Football</strong>
+                    <div class="small text-muted">11-a-side inter-batch</div>
+                  </div>
+                  <div class="card event-card-sm p-2">
+                    <strong>Mini Marathon</strong>
+                    <div class="small text-muted">Open run event</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <h5 class="mb-2">Indoor</h5>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="card event-card-sm p-2">
+                    <strong>Carrom</strong>
+                    <div class="small text-muted">Individual knockout</div>
+                  </div>
+                  <div class="card event-card-sm p-2">
+                    <strong>Ludo (Girls Only)</strong>
+                    <div class="small text-muted">Batch knockouts</div>
+                  </div>
+                  <div class="card event-card-sm p-2">
+                    <strong>Pillow Passing (Girls Only)</strong>
+                    <div class="small text-muted">Fun relay game</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <h5 class="mb-2">E-Sports</h5>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="card event-card-sm p-2">
+                    <strong>Mini Militia</strong>
+                    <div class="small text-muted">Team shooter</div>
+                  </div>
+                  <div class="card event-card-sm p-2">
+                    <strong>E-Football</strong>
+                    <div class="small text-muted">Individual FIFA-style</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fixtures accordion (kept from extracted content) -->
+          <div class="card p-4 mb-3">
+            <h3>Fixtures</h3>
+            <p class="text-muted small">Expand an event to view overview and open the full fixtures page.</p>
+            <div class="accordion" id="fixturesAccordion">
+              <!-- Outdoor -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingShortPitch">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortPitch" aria-expanded="false" aria-controls="collapseShortPitch">Short Pitch Cricket</button>
+                </h2>
+                <div id="collapseShortPitch" class="accordion-collapse collapse" aria-labelledby="headingShortPitch" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p>Fixture: Will be updated later.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingInterFootball">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInterFootball" aria-expanded="false" aria-controls="collapseInterFootball">Inter-Batch Football</button>
+                </h2>
+                <div id="collapseInterFootball" class="accordion-collapse collapse" aria-labelledby="headingInterFootball" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p>Fixture: Will be updated later.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingMiniMarathon">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMiniMarathon" aria-expanded="false" aria-controls="collapseMiniMarathon">Mini Marathon</button>
+                </h2>
+                <div id="collapseMiniMarathon" class="accordion-collapse collapse" aria-labelledby="headingMiniMarathon" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p>Fixture: Will be updated later.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Indoor -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingCarrom">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCarrom" aria-expanded="false" aria-controls="collapseCarrom">Carrom</button>
+                </h2>
+                <div id="collapseCarrom" class="accordion-collapse collapse" aria-labelledby="headingCarrom" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p><strong>Format:</strong> Round 1 batch knockouts, inter-batch quarters and a round-robin semifinal.</p>
+                    <p>Full Carrom fixtures: <a href="https://timitbd.com/csefest/Carrom_Fixture.html" target="_blank" rel="noopener noreferrer">Open Carrom Fixture page</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingLudo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLudo" aria-expanded="false" aria-controls="collapseLudo">Ludo (Girls Only)</button>
+                </h2>
+                <div id="collapseLudo" class="accordion-collapse collapse" aria-labelledby="headingLudo" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p>Full Ludo fixtures: <a href="https://timitbd.com/csefest/Ludo_Fixture.html" target="_blank" rel="noopener noreferrer">Open Ludo Fixture page</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPillow">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePillow" aria-expanded="false" aria-controls="collapsePillow">Pillow Passing (Girls Only)</button>
+                </h2>
+                <div id="collapsePillow" class="accordion-collapse collapse" aria-labelledby="headingPillow" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p>Fixture: Will be updated later.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- E-Sports -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingMiniMilitia">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMiniMilitia" aria-expanded="false" aria-controls="collapseMiniMilitia">Mini Militia (E-Sports)</button>
+                </h2>
+                <div id="collapseMiniMilitia" class="accordion-collapse collapse" aria-labelledby="headingMiniMilitia" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p>Full Mini-Militia fixtures: <a href="https://timitbd.com/csefest/Mini_Militia_Fixture.html" target="_blank" rel="noopener noreferrer">Open Mini-Militia Fixture page</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEFootball">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEFootball" aria-expanded="false" aria-controls="collapseEFootball">E-Football (E-Sports)</button>
+                </h2>
+                <div id="collapseEFootball" class="accordion-collapse collapse" aria-labelledby="headingEFootball" data-bs-parent="#fixturesAccordion">
+                  <div class="accordion-body">
+                    <p>Full E-Football fixtures: <a href="https://timitbd.com/csefest/E_Football_Fixture.html" target="_blank" rel="noopener noreferrer">Open E-Football Fixture page</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Other events -->
+            
+            </div>
+          </div>
+
+          <h3>Contact</h3>
+          <p>Email <a href="mailto:sports@csefest.example">sports@csefest.example</a> for bookings and equipment needs.</p>
+        </section>
+      </div>
+    </div>
+  </main>
 
       <h3>Contact</h3>
       <p>Email <a href="mailto:sports@csefest.example">sports@csefest.example</a> for bookings and equipment needs.</p>
