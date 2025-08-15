@@ -846,5 +846,30 @@
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Navbar hide on scroll
+    (function() {
+      var navbar = document.getElementById('mainNav');
+      var lastScrollTop = 0;
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+              // Scrolling down
+              navbar.classList.add('navbar-hidden');
+            } else {
+              // Scrolling up
+              navbar.classList.remove('navbar-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
