@@ -23,36 +23,84 @@
     <div class="container text-white text-center">
       <h1 class="fw-bold">Programming Contest</h1>
       <p class="lead">Algorithmic challenges, team rounds and prizes — sharpen your skills.</p>
-  <a class="btn btn-primary mt-3" href="https://forms.gle/REPLACE_WITH_YOUR_FORM" target="_blank" rel="noopener noreferrer">Register for this event</a>
+      <div class="d-flex justify-content-center gap-3 mt-3">
+        <a id="preRegBtn" class="btn btn-lg btn-outline-light" href="https://forms.gle/REPLACE_WITH_YOUR_FORM" target="_blank" rel="noopener noreferrer">Pre-registration (Apply)</a>
+        <a id="finalRegBtn" class="btn btn-lg btn-primary disabled" href="https://forms.gle/REPLACE_WITH_YOUR_FORM" target="_blank" rel="noopener noreferrer">Final Registration (Coming)</a>
+      </div>
     </div>
   </header>
 
   <main class="py-5">
     <div class="container" data-aos="fade-up">
-      <h2>Overview</h2>
-      <p>The Programming Contest at CSE FEST 2025 is designed for both individuals and teams. Expect a mix of algorithmic, data-structure, and optimization problems with time-limited rounds.</p>
+    <div class="row mb-4">
+        <div class="col-md-10 mx-auto text-center">
+      <h2><span class="prog-icon" aria-hidden="true">💻</span> Programming Contest — Overview & Rules</h2>
+          <p class="text-muted">Preliminary registration ends on <strong>20 Aug 2025</strong>. Final registration begins after that date. Some information will be updated later.</p>
+        </div>
+      </div>
 
-      <h3>Format</h3>
-      <ul>
-        <li>Qualifiers (online)</li>
-        <li>On-site semifinals</li>
-        <li>Finals with live scoreboard</li>
-      </ul>
+      <!-- Buttons to reveal sections -->
+      <div class="row mb-4">
+        <div class="col-12 d-flex justify-content-center">
+          <div class="btn-group" role="tablist" aria-label="Details sections">
+            <button class="btn btn-outline-primary section-btn" data-target="#teamRules" role="tab" aria-controls="teamRules" aria-selected="false" tabindex="0">Team formation</button>
+            <button class="btn btn-outline-primary section-btn" data-target="#contestRules" role="tab" aria-controls="contestRules" aria-selected="false" tabindex="-1">Contest rules</button>
+            <button class="btn btn-outline-primary section-btn" data-target="#selectedTeams" role="tab" aria-controls="selectedTeams" aria-selected="false" tabindex="-1">Selected teams</button>
+          </div>
+        </div>
+      </div>
 
-      <h3>Rules & Languages</h3>
-      <p>Allowed languages: C/C++, Java, Python. Standard contest rules apply; plagiarism and unfair collaboration will lead to disqualification.</p>
+      <!-- Sections -->
+      <div class="row">
+        <div class="col-md-10 mx-auto">
 
-      <h3>Prizes & Perks</h3>
-      <ul>
-        <li>Top teams get trophies and gift vouchers</li>
-        <li>Mentorship sessions for finalists</li>
-      </ul>
+          <section id="teamRules" class="detail-section card p-4 mb-3" hidden role="tabpanel" aria-labelledby="teamRules-tab" aria-hidden="true">
+            <h3>Rules to form a team</h3>
+            <ul>
+              <li>As it is regional, universities only from Chittagong region can join this contest.</li>
+              <li>Every team consists of 3 members &amp; 1 Coach.</li>
+              <li>40 teams will be selected for the final contest.</li>
+            </ul>
+            <p class="text-muted small">Note: Team eligibility and verification will be handled during final registration.</p>
+          </section>
 
-      <h3>Schedule</h3>
-      <p>Qualifiers: 2025-10-20; On-site rounds: 2025-11-02</p>
+          <section id="contestRules" class="detail-section card p-4 mb-3" hidden role="tabpanel" aria-labelledby="contestRules-tab" aria-hidden="true">
+            <h3>Rules of the Programming Contest</h3>
+            <ol>
+              <li>Contestants must adhere to the honour code — no cheating or external help.</li>
+              <li>Problems will be judged by automated judge; decisions of the organizing committee are final.</li>
+              <li>Allowed languages: C/C++, Java, Python (latest stable versions).</li>
+              <li>Time limits and memory limits will be specified in each problem statement.</li>
+            </ol>
+            <p class="mt-2">Download full rulebook: <a class="btn btn-sm btn-outline-secondary" href="https://drive.google.com/drive/folders/REPLACE_WITH_DRIVE_LINK" target="_blank" rel="noopener noreferrer">Download rulebook</a></p>
+          </section>
 
-      <h3>Contact</h3>
-      <p>For queries about the contest format, email <a href="mailto:programming@csefest.example">programming@csefest.example</a>.</p>
+          <section id="selectedTeams" class="detail-section card p-4 mb-3" hidden role="tabpanel" aria-labelledby="selectedTeams-tab" aria-hidden="true">
+            <h3>Selected Teams (Finalists)</h3>
+            <p class="text-muted">Selected teams will be published here after qualifiers are processed.</p>
+            <div id="selectedList">
+              <p class="mb-0">No teams have been published yet. Check back after qualifiers.</p>
+            </div>
+          </section>
+
+          <section class="card p-4 mb-3">
+            <h3>Event Timeline</h3>
+            <ul>
+              <li>Preliminary registration phase ends: <strong>20 Aug 2025</strong></li>
+              <li>Final registration opens: <strong>21 Aug 2025</strong></li>
+              <li>Qualifiers (online): <strong>20 Oct 2025</strong></li>
+              <li>On-site rounds: <strong>02 Nov 2025</strong></li>
+            </ul>
+            <p class="text-muted small">Dates subject to change. Some information will be updated later.</p>
+          </section>
+
+          <section class="card p-4 mb-3">
+            <h3>Contact & Queries</h3>
+            <p>For queries about the contest format, email <a href="mailto:programming@csefest.example">programming@csefest.example</a>.</p>
+          </section>
+
+        </div>
+      </div>
     </div>
   </main>
 
@@ -65,5 +113,58 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>AOS.init();</script>
+  <script>
+    // Toggle sections when buttons are clicked
+    (function(){
+      const sectionBtns = Array.from(document.querySelectorAll('.section-btn'));
+      const sections = Array.from(document.querySelectorAll('.detail-section'));
+      sectionBtns.forEach((btn, idx) => {
+        const targetSel = btn.getAttribute('data-target');
+        const panel = document.querySelector(targetSel);
+        // tie ids for aria
+        if(panel){
+          btn.id = btn.id || (targetSel.replace('#','') + '-tab');
+        }
+        btn.addEventListener('click', function(){
+          // hide all panels and mark unselected
+          sections.forEach(s => { s.hidden = true; s.setAttribute('aria-hidden','true'); });
+          sectionBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); b.setAttribute('tabindex','-1'); });
+          // show target
+          if(panel){ panel.hidden = false; panel.setAttribute('aria-hidden','false'); }
+          this.classList.add('active');
+          this.setAttribute('aria-selected','true');
+          this.setAttribute('tabindex','0');
+          this.focus();
+          // smooth scroll a bit
+          if(panel) panel.scrollIntoView({behavior:'smooth', block:'center'});
+        });
+        // keyboard navigation
+        btn.addEventListener('keydown', function(e){
+          if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){
+            const next = sectionBtns[(idx+1) % sectionBtns.length]; next.focus();
+          }
+          if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
+            const prev = sectionBtns[(idx-1 + sectionBtns.length) % sectionBtns.length]; prev.focus();
+          }
+          if(e.key === 'Enter' || e.key === ' '){ this.click(); }
+        });
+      });
+
+      // Enable/disable registration buttons based on prelim deadline (20 Aug 2025)
+  const preBtn = document.getElementById('preRegBtn');
+  const finalBtn = document.getElementById('finalRegBtn');
+      const deadline = new Date('2025-08-20T23:59:59');
+      const now = new Date();
+      if(now > deadline){
+        // pre registration closed; enable final
+        if(preBtn) preBtn.classList.add('disabled');
+        if(finalBtn) finalBtn.classList.remove('disabled');
+      } else {
+        // pre open, final closed
+        if(preBtn) preBtn.classList.remove('disabled');
+        if(finalBtn) finalBtn.classList.add('disabled');
+      }
+    })();
+  </script>
 </body>
 </html>
