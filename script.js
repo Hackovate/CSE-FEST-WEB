@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Modern loading animations
   function addLoadingAnimations() {
-    const elements = document.querySelectorAll('.event-card, .about-card, .timeline-panel');
+    const elements = document.querySelectorAll('.event-card, .about-card, .schedule-day');
     elements.forEach((el, index) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
@@ -135,6 +135,30 @@ document.addEventListener('DOMContentLoaded', function(){
     gallery.appendChild(indicators);
   }
 
+  // Initialize loading animations
+  addLoadingAnimations();
+
+  // Scroll to Top Button Functionality
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+  
+  function toggleScrollToTop() {
+    if (window.pageYOffset > 300) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+  }
+  
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+  
+  window.addEventListener('scroll', toggleScrollToTop);
+  scrollToTopBtn.addEventListener('click', scrollToTop);
+  
   // Enhanced form validation with modern feedback
   function createModernAlert(message, type = 'success') {
     const alert = document.createElement('div');
@@ -168,9 +192,9 @@ document.addEventListener('DOMContentLoaded', function(){
       }
       
       // Modern loading state
-      const submitBtn = regForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Submitting...';
+      const submitBtn = regForm.querySelector('.btn-register');
+      const originalText = submitBtn.querySelector('.btn-text').textContent;
+      submitBtn.querySelector('.btn-text').textContent = 'Submitting...';
       submitBtn.disabled = true;
       
       // Simulate async submission with modern feedback
@@ -186,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
         regForm.reset();
         regForm.classList.remove('was-validated');
-        submitBtn.textContent = originalText;
+        submitBtn.querySelector('.btn-text').textContent = originalText;
         submitBtn.disabled = false;
         
         // Remove alert after 5 seconds
@@ -212,9 +236,9 @@ document.addEventListener('DOMContentLoaded', function(){
       }
       
       // Modern loading state
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
+      const submitBtn = contactForm.querySelector('.btn-contact');
+      const originalText = submitBtn.querySelector('.btn-text').textContent;
+      submitBtn.querySelector('.btn-text').textContent = 'Sending...';
       submitBtn.disabled = true;
       
       setTimeout(() => {
@@ -228,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
         contactForm.reset();
         contactForm.classList.remove('was-validated');
-        submitBtn.textContent = originalText;
+        submitBtn.querySelector('.btn-text').textContent = originalText;
         submitBtn.disabled = false;
         
         setTimeout(() => {
@@ -240,75 +264,121 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  // Enhanced timeline interaction with modern animations
-  (function timelineTabs(){
+  // Modern Schedule Tabs with Enhanced Interactions
+  (function scheduleTabs(){
     try{
-      const dateButtons = Array.from(document.querySelectorAll('.timeline-dates .date-btn'));
-      const panels = Array.from(document.querySelectorAll('.timeline-panel'));
-      const track = document.querySelector('.timeline-track');
+      const scheduleTabs = Array.from(document.querySelectorAll('.schedule-tab'));
+      const scheduleDays = Array.from(document.querySelectorAll('.schedule-day'));
 
-      function activateByTarget(targetId){
-        // Enhanced button animations
-        dateButtons.forEach(btn => {
-          const wasActive = btn.classList.contains('active');
-          btn.classList.toggle('active', btn.getAttribute('data-target') === targetId);
+      function activateScheduleDay(dayId){
+        // Update tab states
+        scheduleTabs.forEach(tab => {
+          const isActive = tab.getAttribute('data-day') === dayId;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', isActive);
           
-          if (!wasActive && btn.classList.contains('active')) {
-            btn.style.transform = 'scale(1.05)';
-            setTimeout(() => btn.style.transform = '', 200);
+          // Add click animation
+          if (isActive && !tab.classList.contains('was-active')) {
+            tab.style.transform = 'scale(1.05)';
+            setTimeout(() => tab.style.transform = '', 200);
           }
         });
         
-        // Enhanced panel animations
-        panels.forEach(p => {
-          const shouldBeActive = ('#' + p.id) === targetId;
-          if (shouldBeActive && !p.classList.contains('active')) {
-            p.style.opacity = '0';
-            p.style.transform = 'translateY(20px)';
-            p.classList.add('active');
+        // Update day content visibility
+        scheduleDays.forEach(day => {
+          const shouldBeActive = day.id === dayId + '-content';
+          if (shouldBeActive && !day.classList.contains('active')) {
+            // Hide all days first
+            scheduleDays.forEach(d => d.classList.remove('active'));
             
-            setTimeout(() => {
-              p.style.transition = 'all 0.4s ease-out';
-              p.style.opacity = '1';
-              p.style.transform = 'translateY(0)';
-            }, 100);
-          } else if (!shouldBeActive) {
-            p.classList.remove('active');
-            p.style.opacity = '0';
-            p.style.transform = 'translateY(20px)';
+            // Show target day with animation
+            day.classList.add('active');
+            
+            // Add staggered animation to event items
+            const eventItems = day.querySelectorAll('.event-item');
+            eventItems.forEach((item, index) => {
+              item.style.opacity = '0';
+              item.style.transform = 'translateY(20px)';
+              
+              setTimeout(() => {
+                item.style.transition = 'all 0.4s ease-out';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, index * 100);
+            });
           }
         });
-        
-        if(track) track.style.transform = '';
       }
 
-      dateButtons.forEach((btn, idx) => {
-        btn.setAttribute('role','tab');
-        btn.addEventListener('click', function(){ 
-          activateByTarget(this.getAttribute('data-target')); 
+      // Initialize tabs
+      scheduleTabs.forEach((tab, idx) => {
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', idx === 0);
+        
+        tab.addEventListener('click', function(){ 
+          activateScheduleDay(this.getAttribute('data-day')); 
         });
-        btn.addEventListener('keydown', function(e){
+        
+        // Enhanced keyboard navigation
+        tab.addEventListener('keydown', function(e){
           if(e.key === 'ArrowRight'){
-            const next = dateButtons[(idx+1) % dateButtons.length]; 
+            const next = scheduleTabs[(idx+1) % scheduleTabs.length]; 
             next.focus();
           }
           if(e.key === 'ArrowLeft'){
-            const prev = dateButtons[(idx-1 + dateButtons.length) % dateButtons.length]; 
+            const prev = scheduleTabs[(idx-1 + scheduleTabs.length) % scheduleTabs.length]; 
             prev.focus();
           }
           if(e.key === 'Enter' || e.key === ' '){ 
-            activateByTarget(this.getAttribute('data-target')); 
+            activateScheduleDay(this.getAttribute('data-day')); 
           }
         });
       });
 
-      if(track) track.style.transform = 'translateX(0)';
+      // Initialize with first day active
+      if (scheduleTabs.length > 0) {
+        activateScheduleDay(scheduleTabs[0].getAttribute('data-day'));
+      }
 
-      window.addEventListener('resize', function(){
-        const activeBtn = dateButtons.find(b => b.classList.contains('active'));
-        if(activeBtn) activateByTarget(activeBtn.getAttribute('data-target'));
+      // Add hover effects for event items
+      document.querySelectorAll('.event-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          if (!this.classList.contains('highlight')) {
+            this.style.transform = 'translateX(15px) scale(1.02)';
+          }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          if (!this.classList.contains('highlight')) {
+            this.style.transform = 'translateX(0) scale(1)';
+          }
+        });
       });
-    }catch(e){console.warn('timelineTabs error', e)}
+
+      // Add intersection observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe timeline groups for scroll animations
+      document.querySelectorAll('.timeline-group').forEach(group => {
+        group.style.opacity = '0';
+        group.style.transform = 'translateY(30px)';
+        group.style.transition = 'all 0.6s ease-out';
+        observer.observe(group);
+      });
+
+    }catch(e){console.warn('scheduleTabs error', e)}
   })();
 
   // Modern hover effects for cards
@@ -346,8 +416,6 @@ document.addEventListener('DOMContentLoaded', function(){
     progressBar.style.width = scrollPercent + '%';
   });
 
-  // Initialize loading animations
-  addLoadingAnimations();
 });
 
 
