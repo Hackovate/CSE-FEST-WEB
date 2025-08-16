@@ -1,26 +1,92 @@
-CSE FEST 2025 — Static Website
+# CSE FEST 2025 Website
 
-This folder contains a responsive, accessible, and animated static website for CSE FEST 2025 built with HTML, Bootstrap 5, AOS, and custom CSS/JS.
+A modern, responsive website for CSE FEST 2025 - celebrating code, creativity & community.
 
-Files
-- index.html — Main page
-- style.css — Custom styles
-- script.js — JS for animations, smooth scroll, and client-side validation
-- assets/img — Image folder (place event images here)
+## 🌟 Features
 
-Usage
-1. Open `index.html` in your browser (double-click or open via your editor).
-2. Replace placeholder images in the gallery and event cards by placing images in `assets/img` and updating the `src` attributes.
+- **Modern Design**: Glassmorphism effects and contemporary UI
+- **Responsive Layout**: Mobile-first design that works on all devices
+- **Interactive Elements**: Smooth animations and hover effects
+- **Event Pages**: Dedicated pages for all festival events
+- **Registration System**: Online registration with form validation
+- **Schedule Timeline**: Interactive event schedule
+- **Gallery**: Photo carousel from previous events
+- **Contact Information**: Easy access to organizer details
 
-Notes
-- The site uses external CDNs for Bootstrap and AOS. For offline use, replace CDN links with local copies.
-- Forms are client-side validated and show simulated success messages. Hook them to a backend or email service to persist submissions.
-- Replace the Google Maps iframe `src` in `index.html` with your venue coordinates if needed.
+## 🎯 Events Covered
 
-Event registration
-- Event pages now link to a Google Form for registration. Replace the placeholder URL `https://forms.gle/REPLACE_WITH_YOUR_FORM` in each file under `events/` with your real Google Form link so users are sent to the live form.
+- **Programming Contest**: Competitive programming challenges
+- **Sports Week**: Various indoor/outdoor sports and e-sports
+- **Cultural Night**: Music, dance, and entertainment
+- **Alumni Reunion**: Networking and mentorship sessions
+- **Farewell Ceremony**: Batch graduation celebration
+- **Workshops**: Hands-on technical learning sessions
 
-Accessibility & Performance
-- Images include alt text. Semantic HTML tags are used.
-- Fonts use Google Fonts (Poppins & Roboto).
-- Keep images optimized for fast loading.
+## 🚀 Live Website
+
+Visit the live website: [CSE FEST 2025](https://shakib-mehrab.github.io/CSE-FEST-WEB/)
+
+## 🛠️ Technologies Used
+
+- **HTML5**: Semantic markup
+- **CSS3**: Modern styling with custom properties
+- **Bootstrap 5.3.2**: Responsive framework
+- **JavaScript**: Interactive functionality
+- **AOS Library**: Scroll animations
+- **GitHub Pages**: Free hosting with automatic deployment
+
+## 📱 Responsive Design
+
+The website is fully responsive and optimized for:
+- Desktop computers
+- Tablets
+- Mobile phones
+- Different screen orientations
+
+## 🔄 Automatic Deployment
+
+This website uses GitHub Actions for automatic deployment:
+- Push changes to the `main` branch
+- GitHub Actions automatically builds and deploys
+- Changes are live within minutes
+- No manual deployment required
+
+## 🎨 Design System
+
+- **Colors**: Custom CSS variables for consistent theming
+- **Typography**: Poppins and Inter fonts for modern look
+- **Icons**: SVG icons for scalability
+- **Animations**: Smooth transitions and scroll effects
+
+## 📝 Usage & Customization
+
+### Files Structure
+- `index.html` — Main homepage
+- `style.css` — Custom styles with CSS variables
+- `script.js` — Interactive functionality
+- `events/` — Individual event pages
+- `assets/img/` — Image assets
+
+### Updating Content
+1. **Event Information**: Edit HTML files directly
+2. **Images**: Replace files in `assets/img/` folder
+3. **Contact Details**: Update contact section in `index.html`
+4. **Registration Forms**: Replace placeholder URLs with actual Google Forms
+
+### Event Registration
+Event pages link to Google Forms for registration. Replace the placeholder URL `https://forms.gle/REPLACE_WITH_YOUR_FORM` in each event file with your actual Google Form links.
+
+## 📧 Contact
+
+**Program Chairman**: Dr. Md. Faisal Bin Abdul Aziz  
+**Email**: faisal_245cse@yahoo.com  
+**Phone**: +880 1607 194474  
+**Institution**: Comilla University
+
+## 📄 License
+
+© CSE FEST 2025 — All rights reserved.
+
+---
+
+*Built with ❤️ for the CSE community*
