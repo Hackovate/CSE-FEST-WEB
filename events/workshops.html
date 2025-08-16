@@ -1,132 +1,749 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Workshops — CSE FEST 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="../style.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark event-nav">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">
-        <img src="../assets/img/Header.svg" alt="CSE FEST 2025" class="navbar-logo">
-      </a>
-    </div>
-  </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Workshops — CSE FEST 2025</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <header class="hero event-hero hero-workshops" data-aos="zoom-in">
-    <div class="container text-white text-center">
-      <h1 class="fw-bold">Workshops — CSE FEST 2025</h1>
-      <p class="lead">Interactive, instructor-led sessions — limited seats. Register early.</p>
-      <div class="d-flex justify-content-center gap-3 mt-3">
-        <a class="btn btn-lg btn-primary" href="https://forms.gle/REPLACE_WITH_YOUR_FORM" target="_blank" rel="noopener noreferrer">Register for Workshops</a>
-        <a class="btn btn-lg btn-outline-light" href="../index.html">Back to Home</a>
+    <style>
+      /* Modern Workshops Page Styles */
+      .hero-workshops {
+        min-height: 100vh;
+        background: var(--gradient-hero);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-workshops::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Floating workshop elements */
+      .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .floating-element {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.15;
+        animation: float 20s infinite linear;
+        pointer-events: none;
+      }
+
+      .floating-element:nth-child(1) {
+        top: 15%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .floating-element:nth-child(2) {
+        top: 65%;
+        left: 85%;
+        animation-delay: -5s;
+      }
+      .floating-element:nth-child(3) {
+        top: 85%;
+        left: 15%;
+        animation-delay: -10s;
+      }
+      .floating-element:nth-child(4) {
+        top: 25%;
+        left: 75%;
+        animation-delay: -15s;
+      }
+      .floating-element:nth-child(5) {
+        top: 75%;
+        left: 45%;
+        animation-delay: -8s;
+      }
+      .floating-element:nth-child(6) {
+        top: 35%;
+        left: 90%;
+        animation-delay: -12s;
+      }
+      .floating-element:nth-child(7) {
+        top: 95%;
+        left: 65%;
+        animation-delay: -3s;
+      }
+      .floating-element:nth-child(8) {
+        top: 5%;
+        left: 40%;
+        animation-delay: -18s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .stat-card {
+        background: var(--glass);
+
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+        color: white;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        z-index: 10;
+        background: var(--glass);
+
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: var(--transition-normal);
+      }
+
+      .back-button:hover {
+        background: var(--white);
+        color: var(--primary);
+        transform: translateX(-5px);
+      }
+
+      /* Modern card styles */
+      .modern-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(79, 70, 229, 0.1);
+        transition: var(--transition-normal);
+      }
+
+      .modern-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .section-tabs {
+        margin: 2rem 0;
+      }
+
+      .section-btn {
+        background: var(--glass);
+
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        margin: 0.25rem;
+        transition: var(--transition-normal);
+        cursor: pointer;
+      }
+
+      .section-btn:hover {
+        background: var(--primary-light);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .section-btn.active {
+        background: var(--white);
+        color: var(--primary);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .workshop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .workshop-card {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        border-left: 4px solid var(--accent);
+        transition: var(--transition-normal);
+      }
+
+      .workshop-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-left-color: var(--primary);
+      }
+
+      .workshop-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .workshop-instructor {
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .workshop-duration {
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .icon-wrapper {
+        background: var(--gradient-primary);
+        border-radius: 12px;
+        padding: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        height: 48px;
+      }
+
+      .icon-wrapper.small {
+        min-width: 40px;
+        height: 40px;
+        padding: 8px;
+      }
+
+      .step-item {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--light);
+      }
+
+      .step-item:last-child {
+        border-bottom: none;
+      }
+
+      .step-item h6 {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .info-card {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        border-left: 4px solid var(--accent);
+        height: 100%;
+      }
+
+      .info-item {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--light);
+      }
+
+      .info-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .pledge-item {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: var(--bg-secondary);
+        border-radius: 8px;
+        border-left: 3px solid var(--primary);
+      }
+
+      .btn-workshops {
+        background: var(--gradient-primary);
+        border: none;
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: var(--transition-normal);
+      }
+
+      .btn-workshops:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .back-button {
+          top: 1rem;
+          left: 1rem;
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+
+        .floating-element {
+          font-size: 1.5rem;
+        }
+
+        .stat-number {
+          font-size: 1.5rem;
+        }
+
+        .workshop-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modern Hero Section -->
+    <section class="hero-workshops">
+      <a href="../index.html" class="back-button">← Back to Home</a>
+
+      <!-- Floating workshop themed elements -->
+      <div class="floating-elements">
+        <div class="floating-element">💻</div>
+        <div class="floating-element">🛠️</div>
+        <div class="floating-element">📚</div>
+        <div class="floating-element">⚡</div>
+        <div class="floating-element">🎯</div>
+        <div class="floating-element">🚀</div>
+        <div class="floating-element">💡</div>
+        <div class="floating-element">🔧</div>
       </div>
-    </div>
-  </header>
 
-  <main class="py-5">
-    <div class="container" data-aos="fade-up">
-      <div class="row g-4">
-        <div class="col-lg-8">
-          <section class="card p-4 mb-3">
-            <h3>Available Workshops</h3>
-            <p class="text-muted small">Choose a session and reserve your seat. Instructor names and short descriptions included.</p>
+      <div class="container hero-content">
+        <div class="row align-items-center min-vh-100">
+          <div class="col-lg-12 text-center text-white">
+            <div data-aos="fade-up">
+              <h1 class="display-3 fw-bold mb-4">Interactive Workshops</h1>
+              <p class="lead mb-4">
+                Interactive, instructor-led sessions — limited seats. Register
+                early.
+              </p>
 
-            <div class="row g-3 mt-2">
-              <div class="col-md-6" data-aos="fade-up">
-                <div class="card p-3 event-card-sm">
-                  <h5>Modern Web Development</h5>
-                  <p class="small text-muted mb-1">React + Next.js — Hands-on SPA & SSR</p>
-                  <p class="small mb-1"><strong>Instructor:</strong> A. Developer</p>
-                  <p class="small mb-0"><strong>Duration:</strong> 3 hours</p>
+              <!-- Statistics Grid -->
+              <div class="stats-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-card">
+                  <span class="stat-number">4</span>
+                  <span>Workshop Sessions</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">3h</span>
+                  <span>Average Duration</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">Hands-on</span>
+                  <span>Learning Style</span>
                 </div>
               </div>
 
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="80">
-                <div class="card p-3 event-card-sm">
-                  <h5>Machine Learning & Data Science</h5>
-                  <p class="small text-muted mb-1">Intro to ML workflows and model building</p>
-                  <p class="small mb-1"><strong>Instructor:</strong> Dr. Data</p>
-                  <p class="small mb-0"><strong>Duration:</strong> 4 hours</p>
-                </div>
-              </div>
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="160">
-                <div class="card p-3 event-card-sm">
-                  <h5>Cloud Fundamentals</h5>
-                  <p class="small text-muted mb-1">AWS/GCP basics and deployment</p>
-                  <p class="small mb-1"><strong>Instructor:</strong> Cloud Eng</p>
-                  <p class="small mb-0"><strong>Duration:</strong> 2.5 hours</p>
-                </div>
-              </div>
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="240">
-                <div class="card p-3 event-card-sm">
-                  <h5>DevOps & CI/CD</h5>
-                  <p class="small text-muted mb-1">Pipelines, containers and automation</p>
-                  <p class="small mb-1"><strong>Instructor:</strong> Ops Lead</p>
-                  <p class="small mb-0"><strong>Duration:</strong> 3 hours</p>
-                </div>
+              <!-- Call to Action -->
+              <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
+                <a
+                  href="https://forms.gle/REPLACE_WITH_YOUR_FORM"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-workshops me-3"
+                  >Register for Workshops</a
+                >
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <section class="card p-4 mb-3">
-            <h4>How workshops run</h4>
-            <ul>
-              <li>Prepare your laptop with the prerequisites listed in the confirmation email.</li>
-              <li>Sessions include live coding, exercises, and Q&A.</li>
-              <li>Certificates provided for full attendance.</li>
-            </ul>
-          </section>
-
-          <section class="card p-4 mb-3">
-            <h4>Participant Pledge</h4>
-            <p class="small text-muted">By attending workshops, participants agree to:</p>
-            <ul>
-              <li>Follow the instructor's guidelines and code of conduct.</li>
-              <li>Respect other learners and avoid disruptive behavior.</li>
-              <li>Complete hands-on exercises to claim the certificate.</li>
-            </ul>
-          </section>
+    <main class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row mb-5">
+          <div class="col-lg-10 mx-auto text-center">
+            <h2 class="mb-3">Available Workshops</h2>
+            <p class="text-muted">
+              Choose a session and reserve your seat. Instructor names and
+              descriptions included.
+            </p>
+          </div>
         </div>
 
-        <aside class="col-lg-4">
-          <div class="card p-3 mb-3" data-aos="fade-up">
-            <h5>Quick Info</h5>
-            <p class="small text-muted mb-1">Registration</p>
-            <p class="mb-2">Register via the workshop form. Seats allocated on a first-come basis.</p>
-            <p class="small text-muted mb-1">Contact</p>
-            <p class="mb-2"><a href="mailto:workshops@csefest.example">workshops@csefest.example</a></p>
-            <p class="small text-muted mb-1">Prerequisites</p>
-            <p class="mb-0">Laptop with Chrome/Firefox, basic coding environment</p>
+        <!-- Navigation Tabs -->
+        <div class="section-tabs">
+          <div class="d-flex flex-wrap justify-content-center">
+            <button
+              class="tab-btn section-btn active"
+              data-target="#workshopsSection"
+            >
+              Workshop Sessions
+            </button>
+            <button
+              class="tab-btn section-btn"
+              data-target="#guidelinesSection"
+            >
+              How Workshops Run
+            </button>
+            <button class="tab-btn section-btn" data-target="#infoSection">
+              Quick Info
+            </button>
           </div>
+        </div>
 
-          <div class="card p-3 mb-3" data-aos="fade-up" data-aos-delay="120">
-            <h6>Upcoming</h6>
-            <ul class="small">
-              <li>Hackathon prep sessions</li>
-              <li>Advanced ML workshop (applied)</li>
-            </ul>
+        <!-- Content Sections -->
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <section
+              id="workshopsSection"
+              class="detail-section"
+              aria-labelledby="workshopsSection-tab"
+            >
+              <!-- Workshop Grid -->
+              <div class="workshop-grid" data-aos="fade-up">
+                <div class="workshop-card">
+                  <div class="workshop-title">Modern Web Development</div>
+                  <p class="text-muted mb-2">
+                    React + Next.js — Hands-on SPA & SSR
+                  </p>
+                  <p class="small mb-1">
+                    <span class="workshop-instructor">Instructor:</span> A.
+                    Developer
+                  </p>
+                  <p class="small mb-0">
+                    <span class="workshop-duration">Duration:</span> 3 hours
+                  </p>
+                </div>
+
+                <div class="workshop-card" data-aos-delay="100">
+                  <div class="workshop-title">
+                    Machine Learning & Data Science
+                  </div>
+                  <p class="text-muted mb-2">
+                    Intro to ML workflows and model building
+                  </p>
+                  <p class="small mb-1">
+                    <span class="workshop-instructor">Instructor:</span> Dr.
+                    Data
+                  </p>
+                  <p class="small mb-0">
+                    <span class="workshop-duration">Duration:</span> 4 hours
+                  </p>
+                </div>
+
+                <div class="workshop-card" data-aos-delay="200">
+                  <div class="workshop-title">Cloud Fundamentals</div>
+                  <p class="text-muted mb-2">AWS/GCP basics and deployment</p>
+                  <p class="small mb-1">
+                    <span class="workshop-instructor">Instructor:</span> Cloud
+                    Eng
+                  </p>
+                  <p class="small mb-0">
+                    <span class="workshop-duration">Duration:</span> 2.5 hours
+                  </p>
+                </div>
+
+                <div class="workshop-card" data-aos-delay="300">
+                  <div class="workshop-title">DevOps & CI/CD</div>
+                  <p class="text-muted mb-2">
+                    Pipelines, containers and automation
+                  </p>
+                  <p class="small mb-1">
+                    <span class="workshop-instructor">Instructor:</span> Ops
+                    Lead
+                  </p>
+                  <p class="small mb-0">
+                    <span class="workshop-duration">Duration:</span> 3 hours
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="guidelinesSection"
+              class="detail-section"
+              hidden
+              aria-labelledby="guidelinesSection-tab"
+            >
+              <div class="modern-card mb-4" data-aos="fade-up">
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-wrapper small me-3">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="white"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-grow-1">
+                    <h3 class="mb-4">How Workshops Run</h3>
+
+                    <div class="step-item">
+                      <h6>Preparation</h6>
+                      <p class="mb-0">
+                        Prepare your laptop with the prerequisites listed in the
+                        confirmation email.
+                      </p>
+                    </div>
+
+                    <div class="step-item">
+                      <h6>Interactive Sessions</h6>
+                      <p class="mb-0">
+                        Sessions include live coding, exercises, and Q&A.
+                      </p>
+                    </div>
+
+                    <div class="step-item">
+                      <h6>Certification</h6>
+                      <p class="mb-0">
+                        Certificates provided for full attendance.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modern-card mb-4" data-aos="fade-up">
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-wrapper small me-3">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="white"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h3v-3c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v3h3v4H4z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-grow-1">
+                    <h3 class="mb-4">Participant Pledge</h3>
+                    <p class="text-muted mb-3">
+                      By attending workshops, participants agree to:
+                    </p>
+
+                    <div class="pledge-item">
+                      <strong>1. Follow Guidelines</strong><br />
+                      <span class="text-muted"
+                        >Follow the instructor's guidelines and code of
+                        conduct.</span
+                      >
+                    </div>
+
+                    <div class="pledge-item">
+                      <strong>2. Respectful Learning</strong><br />
+                      <span class="text-muted"
+                        >Respect other learners and avoid disruptive
+                        behavior.</span
+                      >
+                    </div>
+
+                    <div class="pledge-item">
+                      <strong>3. Active Participation</strong><br />
+                      <span class="text-muted"
+                        >Complete hands-on exercises to claim the
+                        certificate.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="infoSection"
+              class="detail-section"
+              hidden
+              aria-labelledby="infoSection-tab"
+            >
+              <div class="row g-4">
+                <!-- Quick Info Card -->
+                <div class="col-lg-6">
+                  <div class="info-card" data-aos="fade-up">
+                    <div class="d-flex align-items-start mb-3">
+                      <div class="icon-wrapper small me-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          fill="white"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="mb-3">Registration & Contact</h5>
+
+                        <div class="info-item">
+                          <strong class="text-primary">Registration:</strong>
+                          <p class="mb-0 small">
+                            Register via the workshop form. Seats allocated on a
+                            first-come basis.
+                          </p>
+                        </div>
+
+                        <div class="info-item">
+                          <strong class="text-primary">Contact:</strong>
+                          <p class="mb-0">
+                            <a
+                              href="mailto:workshops@csefest.example"
+                              class="text-decoration-none"
+                              >workshops@csefest.example</a
+                            >
+                          </p>
+                        </div>
+
+                        <div class="info-item">
+                          <strong class="text-primary">Prerequisites:</strong>
+                          <p class="mb-0 small">
+                            Laptop with Chrome/Firefox, basic coding environment
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Upcoming Card -->
+                <div class="col-lg-6">
+                  <div
+                    class="info-card"
+                    data-aos="fade-up"
+                    data-aos-delay="120"
+                  >
+                    <div class="d-flex align-items-start mb-3">
+                      <div class="icon-wrapper small me-3">
+                        <svg
+                          width="24"
+                          height="24"
+                          fill="white"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="mb-3">Upcoming Sessions</h5>
+
+                        <div class="info-item">
+                          <strong>🚀 Hackathon Prep Sessions</strong>
+                          <p class="mb-0 small text-muted">
+                            Preparation sessions for upcoming hackathon
+                          </p>
+                        </div>
+
+                        <div class="info-item">
+                          <strong>🤖 Advanced ML Workshop</strong>
+                          <p class="mb-0 small text-muted">
+                            Applied machine learning techniques
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-        </aside>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="py-4 bg-dark text-white">
-    <div class="container text-center">
-      <a href="../index.html" class="text-white">← Back to Home</a>
-    </div>
-  </footer>
+    <footer class="py-4 bg-dark text-white">
+      <div class="container text-center">
+        <a href="../index.html" class="text-white">← Back to Home</a>
+      </div>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Tab functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const sections = document.querySelectorAll(".detail-section");
+
+        function showSection(targetId) {
+          sections.forEach((section) => {
+            section.hidden = section.id !== targetId;
+          });
+
+          tabButtons.forEach((btn) => {
+            btn.classList.toggle(
+              "active",
+              btn.dataset.target === "#" + targetId
+            );
+          });
+        }
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const targetId = button.dataset.target.substring(1);
+            showSection(targetId);
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
