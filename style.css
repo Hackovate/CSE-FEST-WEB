@@ -80,7 +80,8 @@ body {
   background: var(--bg-primary);
   overflow-x: hidden;
   transition: background-color var(--transition-normal), color var(--transition-normal);
-  padding-top: 80px; /* Account for fixed navbar */
+  padding-top: 80px; 
+  /* Account for fixed navbar */
 }
 
 /* Typography */
@@ -106,8 +107,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Enhanced Glassmorphism Navbar - Fixed Position */
 .navbar {
   background: var(--glass-dark);
-  backdrop-filter: blur(30px) saturate(180%);
+  
   -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
   border-bottom: 1px solid var(--glass-border);
   padding: 1rem 0;
   transition: var(--transition-normal);
@@ -152,6 +154,20 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
+.navbar-logo {
+  height: 48px;
+  width: auto;
+  display: inline-block;
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+  filter: drop-shadow(0 4px 12px rgba(255,255,255,0.06));
+}
+
+.navbar-brand:hover .navbar-logo {
+  transform: translateY(-3px) scale(1.03);
+  filter: drop-shadow(0 8px 28px rgba(255,255,255,0.95)) brightness(1.05);
+  box-shadow: 0 0 24px rgba(255,255,255,0.9), 0 0 48px rgba(255,255,255,0.6);
+}
+
 .navbar-brand::after {
   content: '';
   position: absolute;
@@ -170,6 +186,34 @@ h1, h2, h3, h4, h5, h6 {
     0 0 24px #fff,
     0 0 48px #fff,
     0 0 4px #f9f9f9;
+}
+
+/* Remove unwanted box or outline around the logo image on hover/focus */
+.navbar-brand,
+.navbar-brand a,
+.navbar-brand img,
+.navbar-logo {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:hover {
+  background: transparent !important;
+}
+
+/* Prevent mobile tap highlight and ensure image doesn't show a rectangular highlight */
+.navbar-logo {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 6px; /* small radius to soften any remaining edges */
+  display: inline-block;
+}
+
+.navbar-brand:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .navbar-nav .nav-link {
