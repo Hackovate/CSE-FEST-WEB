@@ -80,8 +80,11 @@ body {
   background: var(--bg-primary);
   overflow-x: hidden;
   transition: background-color var(--transition-normal), color var(--transition-normal);
-  padding-top: 80px; 
-  /* Account for fixed navbar */
+}
+
+/* Apply top padding only on the homepage to account for the fixed navbar */
+body.home {
+  padding-top: 80px; /* keeps hero visible under fixed navbar on home */
 }
 
 /* Typography */
@@ -106,14 +109,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Enhanced Glassmorphism Navbar - Fixed Position */
 .navbar {
-  background: var(--glass-dark);
-  
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  backdrop-filter: blur(30px) saturate(180%);
-  border-bottom: 1px solid var(--glass-border);
+  background: transparent; /* fully transparent across the site */
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom: none;
   padding: 1rem 0;
   transition: var(--transition-normal);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -123,15 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--gradient-glass);
-  opacity: 0.3;
-  pointer-events: none;
+  display: none; /* disable glass overlay so navbar stays fully transparent */
 }
 
 /* Navbar container for proper alignment */
