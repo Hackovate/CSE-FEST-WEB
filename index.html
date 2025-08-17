@@ -3,6 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Join CSE FEST 2025 at Comilla University (COU) - The ultimate celebration of Computer Science & Engineering! Experience programming competitions, workshops, cultural events, sports activities, and networking opportunities. Register now for an unforgettable tech festival experience at COU.">
+  <meta name="keywords" content="CSE FEST 2025, COU, Comilla University, Computer Science Festival, Programming Competition, Tech Workshop, Cultural Event, Sports Event, University Festival, CSE Students, Bangladesh">
+  <meta name="author" content="CSE Department, Comilla University">
+  <meta property="og:title" content="CSE FEST 2025 - Ultimate Tech Festival at Comilla University (COU)">
+  <meta property="og:description" content="Join CSE FEST 2025 at Comilla University (COU) - The ultimate celebration of Computer Science & Engineering! Experience programming competitions, workshops, cultural events, sports activities, and networking opportunities.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="assets/img/Header.png">
   <title>CSE FEST 2025</title>
 
   <!-- Google Fonts -->
@@ -143,8 +151,8 @@
     </div>
 
     <div class="container text-center text-white" data-aos="zoom-in">
-      <h1 class="display-4 fw-bold">CSE FEST 2025</h1>
-      <p class="lead">Celebrating Code, Creativity & Community. The biggest Event of the Year!</p>
+             <h1 class="display-4 fw-bold">CSE FEST 2025</h1>
+       <p class="lead">Celebrating Code, Creativity & Community at Comilla University (COU). The biggest Event of the Year!</p>
       <a href="#register" class="btn btn-primary btn-lg mt-3" id="joinBtn">Join Us</a>
     </div>
     <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,170.7C384,160,480,160,576,170.7C672,181,768,203,864,208C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
@@ -154,17 +162,17 @@
     <!-- About -->
     <section id="about" class="py-5">
       <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>About CSE FEST 2025</h2>
-          <p>Celebrating technology, talent, and togetherness</p>
-        </div>
+                 <div class="section-title" data-aos="fade-up">
+           <h2>About CSE FEST 2025</h2>
+           <p>Celebrating technology, talent, and togetherness at Comilla University (COU)</p>
+         </div>
         
         <div class="about-content">
           <div class="row align-items-center">
             <div class="col-lg-6" data-aos="fade-right">
               <div class="about-text">
                 <h3 class="about-heading">Join the Celebration</h3>
-                <p class="about-description">CSE FEST 2025 brings together students, alumni, and faculty to celebrate technology, talent, and togetherness. Expect coding challenges, sports, cultural nights, workshops, and more.</p>
+                                 <p class="about-description">CSE FEST 2025 at Comilla University (COU) brings together students, alumni, and faculty to celebrate technology, talent, and togetherness. Expect coding challenges, sports, cultural nights, workshops, and more.</p>
                 <p class="about-subtext">We aim to inspire collaboration, showcase skills, and build memories that last a lifetime.</p>
                 
                 <div class="about-stats">
@@ -1010,29 +1018,8 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
   <script>
-    // Navbar hide on scroll
-    (function() {
-      var navbar = document.getElementById('mainNav');
-      var lastScrollTop = 0;
-      var ticking = false;
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop && scrollTop > 50) {
-              // Scrolling down
-              navbar.classList.add('navbar-hidden');
-            } else {
-              // Scrolling up
-              navbar.classList.remove('navbar-hidden');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-    })();
+    // Navbar always visible - removed hiding functionality
+    // The navbar will now stay visible at all times with proper background
   </script>
 </body>
 </html>

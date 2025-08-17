@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
   window.addEventListener('scroll', function() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
+    // Always keep navbar visible with proper background
     if (scrollTop > 50) {
       navbar.style.background = 'rgba(15, 23, 42, 0.95)';
       navbar.style.backdropFilter = 'blur(30px) saturate(180%)';
