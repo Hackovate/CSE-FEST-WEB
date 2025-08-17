@@ -908,7 +908,7 @@ footer a:hover {
     font-size: 14px;
   }
 
-  body {
+  body.home {
     padding-top: 70px;
     /* Smaller padding for mobile */
   }
