@@ -1,6 +1,6 @@
-# CSE FEST 2025 Website
+# CoU CSE Fest 2025 Website
 
-A modern, responsive website for CSE FEST 2025 - celebrating code, creativity & community.
+A modern, responsive website for CoU CSE Fest 2025 - celebrating code, creativity & community.
 
 ## 🌟 Features
 
@@ -24,7 +24,7 @@ A modern, responsive website for CSE FEST 2025 - celebrating code, creativity & 
 
 ## 🚀 Live Website
 
-Visit the live website: [CSE FEST 2025](https://shakib-mehrab.github.io/CSE-FEST-WEB/)
+Visit the live website: [CoU CSE Fest 2025](https://shakib-mehrab.github.io/CSE-FEST-WEB/)
 
 ## 🛠️ Technologies Used
 
@@ -85,7 +85,7 @@ Event pages link to Google Forms for registration. Replace the placeholder URL `
 
 ## 📄 License
 
-© CSE FEST 2025 — All rights reserved.
+© CoU CSE Fest 2025 — All rights reserved.
 
 ---
 

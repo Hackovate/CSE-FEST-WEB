@@ -1,4 +1,4 @@
-// Modern CSE FEST 2025 - Enhanced Interactivity & Animations
+// Modern CoU CSE Fest 2025 - Enhanced Interactivity & Animations
 
 // Initialize AOS (Animate on Scroll) with modern settings
 AOS.init({

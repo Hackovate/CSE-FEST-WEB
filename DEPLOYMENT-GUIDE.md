@@ -1,4 +1,4 @@
-# 🚀 CSE FEST 2025 - Deployment Guide
+# 🚀 CoU CSE Fest 2025 - Deployment Guide
 
 ## ✅ **WHAT'S ALREADY DONE**
 
@@ -151,7 +151,7 @@ Found in:
 
 ## 🎉 **CONGRATULATIONS!**
 
-Your CSE FEST 2025 website is now:
+Your CoU CSE Fest 2025 website is now:
 - ✅ **Deployed for FREE**
 - ✅ **Automatically updating**
 - ✅ **Professionally hosted**
